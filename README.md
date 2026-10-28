@@ -1,3 +1,9 @@
+# Latest: PULSE
+
+New trading-journal film in neon purple and black. [Video](https://github.com/syitsnabhan6-max/motion/raw/refs/heads/main/downloads/pulse-trading.mp4) · [Editable project ZIP](https://github.com/syitsnabhan6-max/motion/raw/refs/heads/main/downloads/pulse-remotion.zip) · [Editing guide and research](PULSE.md)
+
+---
+
 # Sunk cost — Remotion revision 2
 
 A portrait motion graphic using Bang Motion's product-tour / claims approach, revised to retain the original character, restore the fisheye loss/deposit history, and improve readable, continuous typography.

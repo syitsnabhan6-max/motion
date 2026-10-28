@@ -1,1 +1,27 @@
-{"name":"sunk-cost-motion","version":"1.0.0","private":true,"scripts":{"dev":"remotion studio src/index.ts","typecheck":"tsc --noEmit","render":"remotion render src/index.ts SunkCost out/sunk-cost.mp4","preview":"remotion render src/index.ts SunkCost out/preview.mp4 --scale=0.5 --crf=23"},"dependencies":{"@fontsource/dm-sans":"^5.2.8","@remotion/cli":"4.0.539","react":"19.1.0","react-dom":"19.1.0","remotion":"4.0.539"},"devDependencies":{"@types/react":"19.1.0","typescript":"5.8.3"}}
+{
+  "name": "sunk-cost-motion",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "render": "remotion render src/index.ts SunkCost out/sunk-cost.mp4",
+    "preview": "remotion render src/index.ts SunkCost out/preview.mp4 --scale=0.5 --crf=23",
+    "render:pulse": "remotion render src/index.ts Pulse out/pulse-full.mp4",
+    "preview:pulse": "remotion render src/index.ts Pulse out/pulse-trading.mp4 --scale=0.6666666666666666 --crf=18"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.2.8",
+    "@fontsource/inter": "^5.2.8",
+    "@remotion/cli": "4.0.539",
+    "@types/three": "^0.180.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.539",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.0",
+    "typescript": "5.8.3"
+  }
+}
