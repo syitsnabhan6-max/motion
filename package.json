@@ -8,7 +8,9 @@
     "render": "remotion render src/index.ts SunkCost out/sunk-cost.mp4",
     "preview": "remotion render src/index.ts SunkCost out/preview.mp4 --scale=0.5 --crf=23",
     "render:pulse": "remotion render src/index.ts Pulse out/pulse-full.mp4",
-    "preview:pulse": "remotion render src/index.ts Pulse out/pulse-trading.mp4 --scale=0.6666666666666666 --crf=18"
+    "preview:pulse": "remotion render src/index.ts Pulse out/pulse-trading.mp4 --scale=0.6666666666666666 --crf=18",
+    "render:archer": "remotion render src/index.ts Archer out/archer.mp4 --crf=17",
+    "preview:archer": "remotion render src/index.ts Archer out/archer-preview.mp4 --scale=0.6666666667 --crf=21"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.2.8",
