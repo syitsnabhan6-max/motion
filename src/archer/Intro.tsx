@@ -210,16 +210,20 @@ export const Intro: React.FC<{ t: number }> = ({ t }) => {
                 key={word}
                 style={{
                   position: "absolute",
-                  left: 400 + i * 80,
+                  left: 440,
                   top: 125 + i * 140,
+                  width: 420,
+                  boxSizing: "border-box",
+                  textAlign: "center",
                   transform: `translateY(${(1 - p) * 18}px) scale(${0.9 + 0.1 * p})`,
                   opacity: p,
                   background:
                     "linear-gradient(110deg,#ffffff03,#ffffff19,#ffffff05)",
                   border: "1px solid #ffc5d21f",
-                  padding: "12px 50px",
+                  padding: "12px 40px",
                   borderRadius: 8,
-                  fontSize: i === 1 ? 66 : 42,
+                  fontSize: 52,
+                  lineHeight: 1.15,
                   fontWeight: 550,
                   letterSpacing: -1.5,
                   textShadow: "0 0 20px #ffd2df77",

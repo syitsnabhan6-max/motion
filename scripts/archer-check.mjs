@@ -18,7 +18,7 @@ for (const sec of times.length
     serveUrl,
     composition,
     browserExecutable,
-    output: `out/archer-v3-${sec}.png`,
+    output: `out/archer-v4-${sec}.png`,
     frame: Math.round(sec * 60),
     scale: 0.75,
   });

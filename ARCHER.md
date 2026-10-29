@@ -1,4 +1,4 @@
-# Archer Indicator — revision 3
+# Archer Indicator — revision 4
 
 Editable Remotion film for Trade With Cupang. Designed natively at **1800 × 600 (3:1), 60 fps, 34 seconds**. Silent, with no voice-over. Composition ID: `Archer`.
 
@@ -11,7 +11,12 @@ npm run typecheck
 npm run render:archer
 ```
 
-Select `Archer` in Remotion Studio. Render output: `out/archer-v3.mp4`. Local Chromium is used when available; otherwise Remotion uses its managed browser. `CHROME_PATH` can select another executable.
+Select `Archer` in Remotion Studio. Render output: `out/archer-v4.mp4`. Local Chromium is used when available; otherwise Remotion uses its managed browser. `CHROME_PATH` can select another executable.
+
+## Revision 4 changes
+
+- Konfirmasi / Entry / SL & TP now all use 52 px type and equal-width labels, centered in one straight vertical column. Their upright pop-up timing is unchanged.
+- Opening spacing, phone motion, chart and CTA retain revision 3 behavior.
 
 ## Revision 3 changes
 
@@ -72,8 +77,8 @@ The lockscreen is a stylized phone mockup with a fixed display date/time for det
 
 ## Delivery and verification
 
-- MP4: `downloads/archer-v3.mp4` (H.264, 4:2:0, fast-start).
-- Editable project: `downloads/archer-v3-remotion.zip`.
+- MP4: `downloads/archer-v4.mp4` (H.264, 4:2:0, fast-start).
+- Editable project: `downloads/archer-v4-remotion.zip`.
 - Poster: `downloads/archer-v3-poster.png`.
 - Checks: TypeScript; inspected keyframes for intro, chart, phone focus and CTA; transition-frame sheets from encoded MP4; duration/frame count; full video decode; standalone ZIP source validation.
 
