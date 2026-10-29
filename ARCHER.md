@@ -1,4 +1,4 @@
-# Archer Indicator — revision 2
+# Archer Indicator — revision 3
 
 Editable Remotion film for Trade With Cupang. Designed natively at **1800 × 600 (3:1), 60 fps, 34 seconds**. Silent, with no voice-over. Composition ID: `Archer`.
 
@@ -11,7 +11,15 @@ npm run typecheck
 npm run render:archer
 ```
 
-Select `Archer` in Remotion Studio. Render output: `out/archer-v2.mp4`. Local Chromium is used when available; otherwise Remotion uses its managed browser. `CHROME_PATH` can select another executable.
+Select `Archer` in Remotion Studio. Render output: `out/archer-v3.mp4`. Local Chromium is used when available; otherwise Remotion uses its managed browser. `CHROME_PATH` can select another executable.
+
+## Revision 3 changes
+
+- Opening word gaps reduced from 0.24em to 0.14em; trailing gap removed for opening lines only. The second opening line moves up 20 px to tighten the vertical spacing.
+- Konfirmasi / Entry / SL & TP use upright opacity/scale pop-ups with an 18 px rise. Rotating labels and panel rotation are removed.
+- Phone entrance uses one continuous cubic curve across 20–22.8 seconds, with no intermediate full stops. Phone rotation and scale use the same progress.
+- Notification pullback runs 25.65–27.8 seconds on a curved path, using exponential magnification. Chart movement and background blur share the phone's timing.
+- Chart design and CTA design remain as approved in revision 2.
 
 ## Revision direction
 
@@ -33,8 +41,8 @@ Select `Archer` in Remotion Studio. Render output: `out/archer-v2.mp4`. Local Ch
 | 12.4–15.4 | Chart continues; Konfirmasi hadir |
 | 15.45–19 | BUY, then area entry, SL, TP with local labels |
 | 19.4–20.5 | Di TradingView |
-| 20–22.7 | Phone arrives close and recedes to right; chart regains focus |
-| 23–27.4 | Notification, camera push-in, Langsung lewat notifikasi, pullback |
+| 20–22.8 | Phone arrives close and recedes to right; chart regains focus |
+| 23–27.8 | Notification, camera push-in, Langsung lewat notifikasi, pullback |
 | 28.6–34 | Archer Indicator / Coba Sekarang / Permudah Jalan Trading Anda Bersama Cupang. |
 
 ## Editable source map
@@ -43,7 +51,8 @@ Select `Archer` in Remotion Studio. Render output: `out/archer-v2.mp4`. Local Ch
 - `Intro.tsx`: glowing depth coins and curved panel transition.
 - `Atmosphere.tsx`: moving gradient light fields.
 - `Chart.tsx`: SVG candles, price levels, labels, sidebar and toolbar.
-- `Phone.tsx`: phone geometry, lockscreen, notification, camera path and depth blur.
+- `Phone.tsx`: phone geometry, lockscreen and notification.
+- `phoneMotion.ts`: continuous phone path, zoom, chart synchronization and depth blur.
 - `Closing.tsx`: medallion-to-capsule CTA and traveling highlight.
 - `Titles.tsx`: word reveal and text glow.
 - `Brand.tsx`: Cupang mark, bullion symbol and Bitcoin icon.
@@ -63,9 +72,9 @@ The lockscreen is a stylized phone mockup with a fixed display date/time for det
 
 ## Delivery and verification
 
-- MP4: `downloads/archer-v2.mp4` (H.264, yuv420p, fast-start).
-- Editable project: `downloads/archer-v2-remotion.zip`.
-- Poster: `downloads/archer-v2-poster.png`.
+- MP4: `downloads/archer-v3.mp4` (H.264, 4:2:0, fast-start).
+- Editable project: `downloads/archer-v3-remotion.zip`.
+- Poster: `downloads/archer-v3-poster.png`.
 - Checks: TypeScript; inspected keyframes for intro, chart, phone focus and CTA; transition-frame sheets from encoded MP4; duration/frame count; full video decode; standalone ZIP source validation.
 
 The previous 1920×1080 film remains in `downloads/archer.mp4` for comparison. Unrelated paused PULSE work is not part of this revision.

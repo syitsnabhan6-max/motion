@@ -7,7 +7,8 @@ import { Atmosphere } from "./Atmosphere";
 import { Intro } from "./Intro";
 import { Chart } from "./Chart";
 import { Words } from "./Titles";
-import { Phone, phoneBlur } from "./Phone";
+import { Phone } from "./Phone";
+import { phoneBlur, phoneChartPose } from "./phoneMotion";
 import { Closing } from "./Closing";
 import { m, path, win } from "./motion";
 // Master layout is designed at 1800 × 600. All timing is measured in seconds.
@@ -54,6 +55,8 @@ export const ArcherFilm: React.FC = () => {
     times,
     [-7, -2, 0, 0.5, 0, -0.5, -0.5, 0, 0, -1, -1, -3, -3, -1, -1, -8],
   );
+  const camera =
+    t >= 20 && t < 28.4 ? phoneChartPose(t) : { s, x, y, ry, rx, rz };
   const headlineBlur =
     win(t, 8, 9.15) * 10 +
     win(t, 10.65, 11.95) * 10 +
@@ -77,11 +80,11 @@ export const ArcherFilm: React.FC = () => {
         <div
           style={{
             position: "absolute",
-            left: x - 720,
-            top: y - 235,
+            left: camera.x - 720,
+            top: camera.y - 235,
             width: 1440,
             height: 470,
-            transform: `perspective(2400px) scale(${s}) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`,
+            transform: `perspective(2400px) scale(${camera.s}) rotateX(${camera.rx}deg) rotateY(${camera.ry}deg) rotateZ(${camera.rz}deg)`,
             filter: `blur(${headlineBlur + phoneBlur(t)}px)`,
             opacity: m(t, 7.7, 8.6) * (1 - m(t, 28.5, 29.3)) * (1 - textDim),
           }}

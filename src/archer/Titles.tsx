@@ -7,8 +7,18 @@ export const Words: React.FC<{
   leave?: number;
   size?: number;
   glow?: boolean;
+  compact?: boolean;
   style?: React.CSSProperties;
-}> = ({ text, t, at, leave = 100, size = 72, glow = true, style }) => {
+}> = ({
+  text,
+  t,
+  at,
+  leave = 100,
+  size = 72,
+  glow = true,
+  compact = false,
+  style,
+}) => {
   const exit = m(t, leave, leave + 0.4);
   return (
     <div
@@ -28,7 +38,11 @@ export const Words: React.FC<{
             key={i}
             style={{
               display: "inline-block",
-              marginRight: ".24em",
+              marginRight: compact
+                ? i < text.split(" ").length - 1
+                  ? ".14em"
+                  : 0
+                : ".24em",
               opacity: p * (1 - exit),
               transform: `translateY(${(1 - p) * 38 - exit * 32}px) rotateX(${(1 - p) * 25}deg)`,
               filter: `blur(${(1 - p) * 8 + exit * 7}px)`,

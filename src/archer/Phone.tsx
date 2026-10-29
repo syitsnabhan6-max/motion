@@ -1,25 +1,10 @@
 import React from "react";
 import { Logo } from "./Brand";
-import { m, path, spring, clamp } from "./motion";
+import { m, spring, clamp } from "./motion";
 import { Words } from "./Titles";
-export const phoneBlur = (t: number) =>
-  m(t, 20, 20.65, 0, 12) * (1 - m(t, 21, 22.7)) +
-  m(t, 23.6, 24.8, 0, 9) * (1 - m(t, 25.8, 27.4));
+import { phonePose } from "./phoneMotion";
 export const Phone: React.FC<{ t: number }> = ({ t }) => {
-  const times = [20, 20.8, 22.2, 22.65, 23.5, 24.8, 25.8, 27.35, 28.4, 29.2];
-  const x = path(
-    t,
-    times,
-    [1080, 1120, 1460, 1460, 1460, 1040, 1040, 1460, 1460, 1660],
-  );
-  const y = path(t, times, [930, 330, 283, 300, 300, 225, 225, 300, 300, 690]);
-  const s = path(
-    t,
-    times,
-    [1.8, 1.55, 0.76, 0.78, 0.78, 1.4, 1.4, 0.78, 0.78, 0.5],
-  );
-  const ry = path(t, times, [-48, -28, -7, -3, -3, 0, 0, -3, -3, 20]);
-  const rz = path(t, times, [-17, -9, 2.4, 0, 0, 0, 0, 0, 0, 8]);
+  const { x, y, s, ry, rz } = phonePose(t);
   const notif = spring(t, 23);
   return (
     <>

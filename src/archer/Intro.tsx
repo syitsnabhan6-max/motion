@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo } from "./Brand";
-import { m, mix, path, win } from "./motion";
+import { m, mix, path, win, out } from "./motion";
 import { Words } from "./Titles";
 export const Coin: React.FC<{
   size: number;
@@ -91,9 +91,10 @@ export const Intro: React.FC<{ t: number }> = ({ t }) => {
           transform: `scale(${m(t, 1.6, 2.5, 1, 0.62)})`,
         }}
       >
-        <Words text="Trading" t={t} at={0.2} leave={4.1} size={114} />
+        <Words compact text="Trading" t={t} at={0.2} leave={4.1} size={114} />
       </div>
       <Words
+        compact
         text="Dengan arah yang jelas"
         t={t}
         at={2.05}
@@ -101,7 +102,7 @@ export const Intro: React.FC<{ t: number }> = ({ t }) => {
         size={76}
         style={{
           position: "absolute",
-          top: 290,
+          top: 270,
           left: 300,
           right: 300,
           textAlign: "center",
@@ -156,11 +157,11 @@ export const Intro: React.FC<{ t: number }> = ({ t }) => {
             position: "absolute",
             inset: 0,
             opacity: settle,
-            transform: `scale(${1 + leave * 0.6}) rotate(${path(t, [4.5, 5.7, 7.4], [5, 0, -3])}deg)`,
+            transform: `scale(${1 + leave * 0.6})`,
             transformOrigin: "1100px 300px",
           }}
         >
-          <svg width="1800" height="600" style={{overflow:"visible"}}>
+          <svg width="1800" height="600" style={{ overflow: "visible" }}>
             <defs>
               <linearGradient id="panelRed">
                 <stop stopColor="#a3243e" stopOpacity=".05" />
@@ -192,11 +193,18 @@ export const Intro: React.FC<{ t: number }> = ({ t }) => {
               filter="url(#panelGlow)"
             />
           </svg>
-          <div style={{ position: "absolute", left: 1019, top: 219, opacity: m(t, 5.5, 5.9) }}>
+          <div
+            style={{
+              position: "absolute",
+              left: 1019,
+              top: 219,
+              opacity: m(t, 5.5, 5.9),
+            }}
+          >
             <Coin size={162} t={t} white={false} />
           </div>
           {["Konfirmasi", "Entry", "SL & TP"].map((word, i) => {
-            const p = m(t, 4.7 + i * 0.18, 5.7 + i * 0.18);
+            const p = out(t, 4.9 + i * 0.22, 0.65);
             return (
               <div
                 key={word}
@@ -204,7 +212,7 @@ export const Intro: React.FC<{ t: number }> = ({ t }) => {
                   position: "absolute",
                   left: 400 + i * 80,
                   top: 125 + i * 140,
-                  transform: `translateX(${(1 - p) * -170}px) rotate(${[-10, -2, 9][i] + Math.sin(t * 0.65 + i) * 3}deg)`,
+                  transform: `translateY(${(1 - p) * 18}px) scale(${0.9 + 0.1 * p})`,
                   opacity: p,
                   background:
                     "linear-gradient(110deg,#ffffff03,#ffffff19,#ffffff05)",
