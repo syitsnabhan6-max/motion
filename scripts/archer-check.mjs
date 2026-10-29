@@ -18,9 +18,9 @@ for (const sec of times.length
     serveUrl,
     composition,
     browserExecutable,
-    output: `out/archer-${sec}.png`,
+    output: `out/archer-v2-${sec}.png`,
     frame: Math.round(sec * 60),
-    scale: 0.5,
+    scale: 0.75,
   });
   console.log("Checked", sec);
 }

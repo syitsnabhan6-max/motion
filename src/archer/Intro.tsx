@@ -1,37 +1,53 @@
 import React from "react";
-import { Logo, Gold, Bitcoin } from "./Brand";
-import { m, mix, path, win, chartPose, chartPoint } from "./motion";
+import { Logo } from "./Brand";
+import { m, mix, path, win } from "./motion";
 import { Words } from "./Titles";
-const Disc: React.FC<{
+export const Coin: React.FC<{
   size: number;
-  rotate: number;
-  tilt: number;
-  kind: number;
+  angle?: number;
+  tilt?: number;
+  white?: boolean;
   t: number;
-}> = ({ size, rotate, tilt, kind, t }) => (
+}> = ({ size, angle = 0, tilt = 0, white = true, t }) => (
   <div
     style={{
       width: size,
       height: size,
-      transform: `perspective(1000px) rotateX(${tilt}deg) rotateY(${rotate}deg) rotateZ(-12deg)`,
+      position: "relative",
+      transform: `perspective(900px) rotateY(${angle}deg) rotateX(${tilt}deg) rotateZ(-9deg)`,
       transformStyle: "preserve-3d",
     }}
   >
-    {Array.from({ length: 7 }, (_, i) => (
+    <div
+      style={{
+        position: "absolute",
+        inset: -size * 0.23,
+        borderRadius: "50%",
+        background:
+          "radial-gradient(circle,#ffafbb44,#ff244c33 45%,transparent 72%)",
+        filter: "blur(12px)",
+        transform: "translateZ(-20px)",
+      }}
+    />
+    {[0, 1, 2, 3, 4].map((i) => (
       <div
         key={i}
         style={{
           position: "absolute",
           inset: 0,
           borderRadius: "50%",
-          background:
-            i === 6
-              ? "linear-gradient(140deg,#ffffff,#f2efef 65%,#c4c0c0)"
-              : "linear-gradient(110deg,#8c7376,#f4e6e6 40%,#8d7277)",
           transform: `translateZ(${i * 2}px)`,
+          border: "1px solid #ffe0e777",
+          background:
+            i === 4
+              ? white
+                ? "linear-gradient(140deg,#fff,#fff7fa 55%,#cbbac0)"
+                : "radial-gradient(circle at 30% 20%,#ff8fa1,#cd203f 48%,#450919)"
+              : "linear-gradient(100deg,#9d475b,#fff2f7 35%,#892b45)",
           boxShadow:
-            i === 0 ? "0 30px 60px #05020470,0 0 35px #ee304b33" : undefined,
-          border: "1px solid #ffffff77",
+            i === 0
+              ? "0 0 24px #ff385ea0,0 0 70px #ff24445c,0 25px 50px #09030688"
+              : undefined,
         }}
       />
     ))}
@@ -39,168 +55,190 @@ const Disc: React.FC<{
       style={{
         position: "absolute",
         inset: 0,
-        transform: "translateZ(15px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        transform: "translateZ(11px)",
+        filter: "drop-shadow(0 0 9px #ff34594d)",
       }}
     >
-      <div
-        style={{
-          position: "absolute",
-          opacity: t < 6.325 ? 1 : 0,
-          transform: `scaleX(${Math.abs(1 - 2 * m(t, 6, 6.65))})`,
-        }}
-      >
-        <Logo size={size * 0.7} />
-      </div>
-      <div
-        style={{
-          opacity: t >= 6.325 ? 1 : 0,
-          transform: `rotate(12deg) scaleX(${Math.abs(1 - 2 * m(t, 6, 6.65))})`,
-        }}
-      >
-        {kind === 0 ? (
-          <Gold size={size * 0.65} />
-        ) : (
-          <Bitcoin size={size * 0.54} />
-        )}
-      </div>
+      <Logo size={size * 0.69} white={!white} />
     </div>
     <div
       style={{
         position: "absolute",
-        inset: 6,
-        border: "2px solid #ffffff99",
+        inset: 4,
+        border: "2px solid #ffffffa0",
         borderRadius: "50%",
-        transform: "translateZ(16px)",
+        transform: "translateZ(12px)",
+        boxShadow: "inset 0 0 14px #fff4",
       }}
     />
   </div>
 );
 export const Intro: React.FC<{ t: number }> = ({ t }) => {
-  const pair = m(t, 5.5, 7.1),
-    exit = m(t, 8.8, 10.35);
-  const ts = [0, 3, 5.5, 7.2, 8.8, 10.35];
+  const settle = m(t, 4.5, 5.65),
+    leave = m(t, 7.4, 8.5);
   return (
-    <div style={{ position: "absolute", inset: 0, perspective: 1600 }}>
-      {t < 6.4 && (
-        <div
-          style={{
-            position: "absolute",
-            left: 250,
-            right: 250,
-            top: path(t, [0, 2, 3.2], [370, 370, 310]),
-            textAlign: "center",
-            transform: `scale(${path(t, [0, 2, 3.2], [1, 1, 0.62])})`,
-          }}
-        >
-          <Words text="Trading" t={t} at={0.2} leave={5.1} size={156} />
-        </div>
-      )}
-      {t > 2.1 && t < 6.2 && (
-        <Words
-          text="Dengan arah yang jelas"
-          t={t}
-          at={2.4}
-          leave={5.15}
-          size={88}
-          style={{
-            position: "absolute",
-            top: 475,
-            left: 240,
-            right: 240,
-            textAlign: "center",
-          }}
-        />
-      )}
-      {t > 5.3 && t < 9.6 && (
-        <Words
-          text="Pair pilihanmu"
-          t={t}
-          at={5.8}
-          leave={8.7}
-          size={92}
-          style={{
-            position: "absolute",
-            top: 205,
-            left: 300,
-            right: 300,
-            textAlign: "center",
-          }}
-        />
-      )}
+    <div style={{ position: "absolute", inset: 0, opacity: 1 - leave }}>
+      <div
+        style={{
+          position: "absolute",
+          left: 330,
+          right: 330,
+          top: path(t, [0, 1.6, 2.5], [210, 210, 145]),
+          textAlign: "center",
+          transform: `scale(${m(t, 1.6, 2.5, 1, 0.62)})`,
+        }}
+      >
+        <Words text="Trading" t={t} at={0.2} leave={4.1} size={114} />
+      </div>
+      <Words
+        text="Dengan arah yang jelas"
+        t={t}
+        at={2.05}
+        leave={4.1}
+        size={76}
+        style={{
+          position: "absolute",
+          top: 290,
+          left: 300,
+          right: 300,
+          textAlign: "center",
+        }}
+      />
       {[0, 1, 2, 3].map((i) => {
-        const starts = [
-          [380, 700, 225],
-          [1460, 350, 180],
-          [1120, 125, 125],
-          [1680, 1130, 430],
+        const pos = [
+          [340, 380, 156],
+          [1400, 200, 144],
+          [1010, 65, 90],
+          [1630, 650, 290],
         ][i];
-        const targetX = i === 0 ? 710 : 1210;
-        const targetY = 570;
-        const x = mix(starts[0] + Math.sin(t * 0.75 + i) * 35, targetX, pair);
-        const y =
-          mix(starts[1] + Math.cos(t * 0.7 + i) * 25, targetY, pair) -
-          Math.sin(pair * Math.PI) * 100;
-        const s = mix(starts[2], i === 0 ? 260 : 240, pair);
-        const anchor = chartPoint(chartPose(t));
-        const finalX = i === 0 && t >= 8.8 ? anchor[0] : mix(x, 2240, exit);
-        const finalY = i === 0 && t >= 8.8 ? anchor[1] : mix(y, 130, exit);
-        const size = mix(s, i === 0 ? 46 * chartPose(t).scale : 360, exit);
-        const opacity = i > 1 ? 1 - m(t, 5.2, 6.2) : 1 - m(t, 10.05, 10.4);
+        const s = mix(pos[2], i === 0 ? 162 : pos[2] * 0.6, settle);
+        const x = mix(
+          pos[0] + Math.sin(t * 0.85 + i) * 22,
+          i === 0 ? 1100 : pos[0] + (i === 1 ? 400 : 0),
+          settle,
+        );
+        const y = mix(
+          pos[1] + Math.cos(t * 0.75 + i) * 15,
+          i === 0 ? 300 : pos[1] - 220,
+          settle,
+        );
         return (
           <div
             key={i}
             style={{
               position: "absolute",
-              left: finalX - size / 2,
-              top: finalY - size / 2,
-              opacity,
+              left: x - s / 2,
+              top: y - s / 2,
+              opacity: i === 0 ? 1 - m(t, 5.5, 5.9) : 1 - settle,
               filter:
-                i === 3 ? "blur(15px)" : i === 2 ? "blur(1.8px)" : undefined,
-              transform: `scale(${m(t, -0.2 + i * 0.12, 0.9 + i * 0.12, 0.7, 1)})`,
+                i === 3 ? "blur(11px)" : i === 2 ? "blur(1.4px)" : undefined,
             }}
           >
-            <Disc
-              size={size}
-              rotate={
-                mix(
-                  [-24, 27, 32, -35][i] + Math.sin(t * 0.55 + i) * 12,
-                  i === 0 ? -8 : 12,
-                  pair,
-                ) *
-                (1 - exit)
-              }
-              tilt={mix(14 + Math.sin(t * 0.6) * 8, 6, pair)}
-              kind={i}
+            <Coin
+              size={s}
               t={t}
+              angle={mix(
+                [-24, 26, 35, -30][i] + Math.sin(t * 0.7 + i) * 9,
+                0,
+                settle,
+              )}
+              tilt={mix(12, 0, settle)}
             />
-            {i < 2 && (
-              <div
-                style={{
-                  position: "absolute",
-                  top: size + 46,
-                  left: -100,
-                  right: -100,
-                  textAlign: "center",
-                  opacity: win(t, 6.6, 8.75),
-                  transform: "none",
-                }}
-              >
-                <div
-                  style={{ fontSize: 40, fontWeight: 550, letterSpacing: -1 }}
-                >
-                  {i === 0 ? "XAUUSD" : "BTC"}
-                </div>
-                <div style={{ fontSize: 23, color: "#ad9ea2", marginTop: 12 }}>
-                  {i === 0 ? "Gold / US Dollar" : "Bitcoin"}
-                </div>
-              </div>
-            )}
           </div>
         );
       })}
+      {t > 4.3 && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            opacity: settle,
+            transform: `scale(${1 + leave * 0.6}) rotate(${path(t, [4.5, 5.7, 7.4], [5, 0, -3])}deg)`,
+            transformOrigin: "1100px 300px",
+          }}
+        >
+          <svg width="1800" height="600" style={{overflow:"visible"}}>
+            <defs>
+              <linearGradient id="panelRed">
+                <stop stopColor="#a3243e" stopOpacity=".05" />
+                <stop offset=".8" stopColor="#ed3753" stopOpacity=".32" />
+                <stop offset="1" stopColor="#ffb4c1" stopOpacity=".75" />
+              </linearGradient>
+              <filter
+                id="panelGlow"
+                x="-40%"
+                y="-60%"
+                width="180%"
+                height="220%"
+              >
+                <feGaussianBlur stdDeviation="14" />
+              </filter>
+            </defs>
+            <path
+              d="M-50 -120H1100V182 C1100 208 988 208 988 300 C988 392 1100 392 1100 418V720H-50Z"
+              fill="url(#panelRed)"
+              stroke="#ff9aaf"
+              strokeWidth="2"
+            />
+            <path
+              d="M1100 -120V182 C1100 208 988 208 988 300 C988 392 1100 392 1100 418V720"
+              fill="none"
+              stroke="#ff6987"
+              strokeWidth="14"
+              opacity=".6"
+              filter="url(#panelGlow)"
+            />
+          </svg>
+          <div style={{ position: "absolute", left: 1019, top: 219, opacity: m(t, 5.5, 5.9) }}>
+            <Coin size={162} t={t} white={false} />
+          </div>
+          {["Konfirmasi", "Entry", "SL & TP"].map((word, i) => {
+            const p = m(t, 4.7 + i * 0.18, 5.7 + i * 0.18);
+            return (
+              <div
+                key={word}
+                style={{
+                  position: "absolute",
+                  left: 400 + i * 80,
+                  top: 125 + i * 140,
+                  transform: `translateX(${(1 - p) * -170}px) rotate(${[-10, -2, 9][i] + Math.sin(t * 0.65 + i) * 3}deg)`,
+                  opacity: p,
+                  background:
+                    "linear-gradient(110deg,#ffffff03,#ffffff19,#ffffff05)",
+                  border: "1px solid #ffc5d21f",
+                  padding: "12px 50px",
+                  borderRadius: 8,
+                  fontSize: i === 1 ? 66 : 42,
+                  fontWeight: 550,
+                  letterSpacing: -1.5,
+                  textShadow: "0 0 20px #ffd2df77",
+                }}
+              >
+                {word}
+              </div>
+            );
+          })}
+          <div
+            style={{
+              position: "absolute",
+              left: 1260,
+              top: 255,
+              fontSize: 40,
+              fontWeight: 500,
+              letterSpacing: -1,
+              opacity: win(t, 5.8, 7.35),
+              textShadow: "0 0 28px #ff879d",
+            }}
+          >
+            Cupang
+            <br />
+            <span style={{ color: "#ffb7c8" }}>Archer</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
