@@ -1,4 +1,12 @@
-# Latest: Cupang Archer v5
+# Latest: Cupang — adaptasi source PULSE
+
+**24 detik, 60 fps, 1800 × 600**, dengan soundtrack PULSE asli. Composition `Cupang` berasal dari duplikasi `src/pulse/`; opening, candle 3D, urutan, timing dan rig transisi tetap mengikuti PULSE. Revisi bola, kurva dan zoom diterapkan di salinan itu. [Panduan dan peta source](CUPANG.md) · [Video](downloads/cupang-pulse.mp4) · [Editable Remotion](downloads/cupang-pulse-remotion.zip) · [Perbandingan frame](downloads/cupang-pulse-comparison.pdf)
+
+Jalankan `npm run dev`, lalu pilih **Cupang**. Cek source: `npm run check:cupang`. Render: `npm run render:cupang`.
+
+---
+
+# Archer v5 — versi sebelumnya
 
 PULSE diteruskan menjadi **Cupang Archer merah-hitam, 1800 × 600, 60 fps, 34 detik**. Bola memantul dan mengembang membawa konfirmasi sinyal, setup entry/SL/TP, dan notifikasi. [Panduan dan source map](ARCHER.md) · [Video](downloads/archer-v5.mp4) · [Editable Remotion ZIP](downloads/archer-v5-remotion.zip)
 
