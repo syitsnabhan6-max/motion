@@ -1,4 +1,12 @@
-# Latest: PULSE
+# Latest: Cupang Archer v5
+
+PULSE diteruskan menjadi **Cupang Archer merah-hitam, 1800 × 600, 60 fps, 34 detik**. Bola memantul dan mengembang membawa konfirmasi sinyal, setup entry/SL/TP, dan notifikasi. [Panduan dan source map](ARCHER.md) · [Video](downloads/archer-v5.mp4) · [Editable Remotion ZIP](downloads/archer-v5-remotion.zip)
+
+Jalankan `npm run dev`, lalu pilih **Archer**. Render: `npm run render:archer`.
+
+---
+
+# PULSE
 
 New trading-journal film in neon purple and black. [Video](https://github.com/syitsnabhan6-max/motion/raw/refs/heads/main/downloads/pulse-trading.mp4) · [Editable project ZIP](https://github.com/syitsnabhan6-max/motion/raw/refs/heads/main/downloads/pulse-remotion.zip) · [Editing guide and research](PULSE.md)
 

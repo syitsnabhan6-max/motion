@@ -1,8 +1,10 @@
-# Archer Indicator — revision 4
+# Cupang Archer — revision 5
 
-Editable Remotion film for Trade With Cupang. Designed natively at **1800 × 600 (3:1), 60 fps, 34 seconds**. Silent, with no voice-over. Composition ID: `Archer`.
+PULSE diteruskan menjadi film Cupang Archer merah-hitam, dibuat langsung pada **1800 × 600 (3:1), 60 fps, 34 detik**. Komposisi: `Archer`. Film tetap tanpa audio, mengikuti Archer sebelumnya.
 
-## Open and render
+## Buka dan render
+
+Node.js 22+ direkomendasikan.
 
 ```sh
 npm ci
@@ -11,75 +13,72 @@ npm run typecheck
 npm run render:archer
 ```
 
-Select `Archer` in Remotion Studio. Render output: `out/archer-v4.mp4`. Local Chromium is used when available; otherwise Remotion uses its managed browser. `CHROME_PATH` can select another executable.
+Pilih **Archer** di Remotion Studio. Hasil render: `out/archer-v5.mp4`.
+`npm run preview:archer` membuat pratinjau 1350 × 450.
+Chromium lokal digunakan bila tersedia; `CHROME_PATH` dapat memilih executable lain.
+Pada sistem tanpa Chromium lokal, gunakan installer browser Remotion.
 
-## Revision 4 changes
+## Arah revisi
 
-- Konfirmasi / Entry / SL & TP now all use 52 px type and equal-width labels, centered in one straight vertical column. Their upright pop-up timing is unchanged.
-- Opening spacing, phone motion, chart and CTA retain revision 3 behavior.
+Tiga kandidat konsep yang dipertimbangkan: metafora benda, estafet benda, dan tur produk berselang klaim.
+**Metafora benda** dipilih karena bola dapat membawa sinyal yang sama melewati konfirmasi, rencana, dan pengiriman notifikasi.
 
-## Revision 3 changes
+Sidik jari: satu bola · lima babak · pantulan / konfirmasi / level setup / ponsel / identitas · pembuka bola sedang jatuh · penutup bola yang sama membawa tanda Cupang.
 
-- Opening word gaps reduced from 0.24em to 0.14em; trailing gap removed for opening lines only. The second opening line moves up 20 px to tighten the vertical spacing.
-- Konfirmasi / Entry / SL & TP use upright opacity/scale pop-ups with an 18 px rise. Rotating labels and panel rotation are removed.
-- Phone entrance uses one continuous cubic curve across 20–22.8 seconds, with no intermediate full stops. Phone rotation and scale use the same progress.
-- Notification pullback runs 25.65–27.8 seconds on a curved path, using exponential magnification. Chart movement and background blur share the phone's timing.
-- Chart design and CTA design remain as approved in revision 2.
+- Karakter PULSE: tipografi Inter 500–600, reveal berurutan dengan blur berarah, benda mengilap, fokus kamera pada respons UI, dan latar gelap berlapis.
+- Merah `#F03240` diwarisi dari Archer; hitam `#070609` serta putih hangat `#FFF6F4` menjaga kontras. `#FFB5B7` adalah turunan merah untuk pantulan dan aksen teks.
+- Tanda tangan gerak: bola memantul, mengalami squash/stretch, membesar menjadi antarmuka, lalu kembali menjadi bola. Objek utama mengikuti lintasan Bézier kubik.
+- Latar: cahaya merah bergerak perlahan dan lengkung berlapis. Objek memakai satu keluarga material lacquer/kaca, dibangun dari CSS/SVG yang tetap editable.
+- Kamera: close-up konfirmasi hingga 1.4×, push ke level setup hingga 1.22×, lalu ponsel masuk dari dekat dan menjauh. Easing quintic digunakan pada perjalanan kamera; pantulan memakai lintasan balistik dan deformasi kontak.
+- Momen utama: bola berubah menjadi ikon notifikasi, melintas dekat kamera, masuk ke ponsel, kemudian mekar menjadi pesan yang terbaca.
+- Chart hanya menjadi konteks kecil di editor setup. Konfirmasi, level risiko, dan notifikasi membawa cerita.
+- Penekanan teks memakai warna, tanpa sorotan pill pada kata. Tidak ada tanda baca otomatis pada judul pendek.
 
-## Revision direction
+## Timeline
 
-- Red and black moving gradients, white depth discs with red Cupang marks, stronger edge glow and luminous central typography.
-- The old two-pair coin sequence is replaced by a curved translucent panel meeting a Cupang medallion, following the Beliv reference.
-- Chart is rebuilt for the wide format with drawing tools, a toolbar, price scale, volume bars, XAUUSD/BTC watchlist, and Archer status. Price levels remain straight and correctly ordered.
-- Explanatory copy appears centrally while chart focus softens. Entry, SL and TP have local labels with short damped pops.
-- A layered phone mockup enters close to camera, recedes and lands beside the chart. Background blur decreases as it lands. Its lockscreen receives a notification; camera moves in and then pulls back.
-- Closing: `Archer Indicator`, a luminous glass capsule with Cupang icon and `Coba Sekarang`, followed by the brand tagline. No separate Trade With Cupang text above the title.
-
-## Timing and copy
-
-| Seconds | Content |
+| Detik | Aksi |
 |---|---|
-| 0–4.5 | Trading / Dengan arah yang jelas; glowing depth discs |
-| 4.5–8 | Cupang medallion in curved panel; Konfirmasi / Entry / SL & TP |
-| 8–10 | Cupang Archer; reveal the detailed chart |
-| 10.7–12.4 | Menunggu konfirmasi; centered copy and focus transition |
-| 12.4–15.4 | Chart continues; Konfirmasi hadir |
-| 15.45–19 | BUY, then area entry, SL, TP with local labels |
-| 19.4–20.5 | Di TradingView |
-| 20–22.8 | Phone arrives close and recedes to right; chart regains focus |
-| 23–27.8 | Notification, camera push-in, Langsung lewat notifikasi, pullback |
-| 28.6–34 | Archer Indicator / Coba Sekarang / Permudah Jalan Trading Anda Bersama Cupang. |
+| 0–3.2 | Bola Cupang jatuh, memantul tiga kali sambil mengembang; “Sebelum entry / Temukan arah” |
+| 3.2–5.15 | Bola mengikuti kurva dan mekar menjadi panel konfirmasi |
+| 5.15–10.8 | Kamera mendekat; indikator selesai membaca, centang muncul dan status menjadi BUY terkonfirmasi |
+| 10.8–12.7 | Panel menyusut menjadi bola, berpindah lewat kurva, lalu membuka editor setup |
+| 13.1 / 15.1 / 17.1 | Entry, SL, dan TP muncul berurutan; TP di atas entry, SL di bawah entry |
+| 19 | Kursor mengaktifkan notifikasi |
+| 20–23.1 | Editor kembali menjadi bola; ikon bel membesar dekat kamera dan tiba di ponsel |
+| 23.1–28.2 | Pesan keluar dari ponsel dan mengembang; “Langsung lewat notifikasi” |
+| 28.2–34 | Pesan menyusut menjadi bola Cupang; penutup “Cupang Archer / Coba sekarang” |
 
-## Editable source map
+## Sumber yang bisa diedit
 
-- `src/archer/ArcherFilm.tsx`: camera positions, composition, timeline and central text.
-- `Intro.tsx`: glowing depth coins and curved panel transition.
-- `Atmosphere.tsx`: moving gradient light fields.
-- `Chart.tsx`: SVG candles, price levels, labels, sidebar and toolbar.
-- `Phone.tsx`: phone geometry, lockscreen and notification.
-- `phoneMotion.ts`: continuous phone path, zoom, chart synchronization and depth blur.
-- `Closing.tsx`: medallion-to-capsule CTA and traveling highlight.
-- `Titles.tsx`: word reveal and text glow.
-- `Brand.tsx`: Cupang mark, bullion symbol and Bitcoin icon.
-- `motion.ts`: deterministic easing functions.
+| File | Isi |
+|---|---|
+| `src/archer/ArcherFilm.tsx` | Komposisi utama, urutan teks, latar, dan satu permukaan yang berubah bentuk |
+| `src/archer/v5/motion.ts` | Palet, contoh harga, waktu aksi, pantulan, kurva, zoom, dan gerak ponsel |
+| `src/archer/v5/Primitives.tsx` | Material bola, ikon, animasi judul, dan kursor |
+| `src/archer/v5/Signal.tsx` | Lingkaran konfirmasi, proses membaca, dan status BUY |
+| `src/archer/v5/Setup.tsx` | Editor entry/SL/TP, chart konteks, sakelar, dan isi notifikasi |
+| `src/archer/v5/Phone.tsx` | Geometri ponsel dan lockscreen |
+| `src/archer/Brand.tsx` | Pembungkus aset logo Cupang |
+| `public/archer/cupang.png` | Aset logo yang digunakan versi Archer sebelumnya |
 
-All components use frame-based time. No video reference footage is embedded in the output. The phone, chart, typography, gradients and CTA remain editable components.
+Semua animasi diturunkan dari frame Remotion, tanpa `Date.now()`, `Math.random()`, atau jam animasi CSS. Nilai entry/SL/TP berasal dari satu objek `demo` sehingga panel dan notifikasi konsisten. Semua bidang, ikon dan teks dapat diedit; logo Cupang tetap aset raster transparan, bukan vektor asli.
 
-## Assets and illustrative UI
+## Deliverable
 
-The Cupang mark comes from the user's supplied image, prepared as a red transparent PNG using image editing. It is not the original vector master; replace `public/archer/cupang.png` with an official transparent export when available.
+- `downloads/archer-v5.mp4`: master H.264 1800 × 600.
+- `downloads/archer-v5-remotion.zip`: proyek Remotion mandiri dengan source, lockfile, konfigurasi, aset dan README; tanpa node_modules.
+- `downloads/archer-v5-poster.png`: frame penutup.
+- `scripts/archer-check.mjs`: render keyframe pilihan; argumen opsional berupa daftar detik.
+- `scripts/package-archer.py`: membuat ulang ZIP mandiri.
 
-Bitcoin icon: https://github.com/spothq/cryptocurrency-icons/blob/master/svg/color/btc.svg — CC0, license included. XAUUSD uses an original bullion SVG with the Au symbol; XAUUSD has no single official brand logo.
+Versi 1–4 tetap tersedia di `downloads/`. Source PULSE tetap di `src/pulse/`; komposisi `Pulse` dapat dipilih untuk perbandingan.
 
-Chart candles, prices, OHLC figures, watchlist graphics, indicator controls and notification are illustrative rather than real market data or verified product screenshots. The demonstrated logic follows the client brief: no Archer annotations before confirmation; BUY followed by entry, SL and TP. No future price move or achieved profit is depicted.
+## Data dan aset
 
-The lockscreen is a stylized phone mockup with a fixed display date/time for deterministic rendering. The CTA inside the MP4 is visual; an actual website button should be an HTML link to the correct product URL.
+Harga dan antarmuka adalah contoh untuk demonstrasi fitur, bukan rekaman harga pasar atau screenshot produk yang diverifikasi. Tidak ada pergerakan harga setelah entry atau hasil keuntungan yang ditampilkan. Sinyal dikonfirmasi sebelum entry/SL/TP muncul. CTA pada video bersifat visual.
 
-## Delivery and verification
+Logo Cupang berasal dari aset PNG yang dipakai Archer sebelumnya. Aset Bitcoin beserta lisensi CC0 versi lama tetap disertakan di folder aset, tetapi tidak digunakan film v5.
 
-- MP4: `downloads/archer-v4.mp4` (H.264, 4:2:0, fast-start).
-- Editable project: `downloads/archer-v4-remotion.zip`.
-- Poster: `downloads/archer-v3-poster.png`.
-- Checks: TypeScript; inspected keyframes for intro, chart, phone focus and CTA; transition-frame sheets from encoded MP4; duration/frame count; full video decode; standalone ZIP source validation.
+## Verifikasi
 
-The previous 1920×1080 film remains in `downloads/archer.mp4` for comparison. Unrelated paused PULSE work is not part of this revision.
+TypeScript, keyframe pembuka/transisi/UI/penutup, kontinuitas enam sambungan lintasan, geometri pada 2040 frame, konsistensi urutan SL < entry < TP, metadata MP4 dan decode penuh, serta instalasi/typecheck/render proyek dari ZIP mandiri.
