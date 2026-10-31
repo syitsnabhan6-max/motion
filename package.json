@@ -25,6 +25,7 @@
     "@fontsource/bricolage-grotesque": "^5.2.8",
     "@fontsource/dm-sans": "^5.2.8",
     "@fontsource/inter": "^5.2.8",
+    "@fontsource/sora": "^5.2.6",
     "@remotion/cli": "4.0.539",
     "@remotion/player": "4.0.539",
     "@types/three": "^0.180.0",

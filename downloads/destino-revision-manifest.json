@@ -1,0 +1,24 @@
+{
+  "type": "15-second direction review",
+  "width": 1080,
+  "height": 1920,
+  "fps": 60,
+  "frames": 900,
+  "files": [
+    {
+      "file": "destino-revision-opening.mp4",
+      "bytes": 8814636,
+      "sha256": "a3754caa6f41a1a03437fb282dcd62921a701a01c63bfaa72dd41b4f4d682c99"
+    },
+    {
+      "file": "destino-revision-opening-remotion.zip",
+      "bytes": 3037758,
+      "sha256": "654027f7386f535a1494a623231820728fa3e2ec39233643eb7ae755f747e28d"
+    },
+    {
+      "file": "destino-revision-opening.jpg",
+      "bytes": 42907,
+      "sha256": "d1b6dd97190189a4894d50d6a3892da61d671c8ee4667f8dacc0141a66ddf93f"
+    }
+  ]
+}
