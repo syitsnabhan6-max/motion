@@ -5,4 +5,7 @@ import {Film} from './Film';
 import {PulseFilm} from './pulse/PulseFilm';
 import {CupangFilm} from './cupang/CupangFilm';
 import {settings} from './content';
-export const Root: React.FC = () => <><Composition id="Cupang" component={CupangFilm} width={1800} height={600} fps={60} durationInFrames={1440}/><Composition id="Archer" component={ArcherFilm} width={1800} height={600} fps={60} durationInFrames={2040}/><Composition id="SunkCost" component={Film} width={settings.width} height={settings.height} fps={settings.fps} durationInFrames={Math.round(settings.duration*settings.fps)}/><Composition id="Pulse" component={PulseFilm} width={1080} height={1920} fps={60} durationInFrames={1440}/></>;
+import {DestinoFilm} from './destino/DestinoFilm';
+import {DestinoCover} from './destino/DestinoCover';
+import {defaultOutlook,FORMAT} from './destino/content';
+export const Root: React.FC = () => <><Composition id="DestinoOutlook" component={DestinoFilm} defaultProps={defaultOutlook} width={FORMAT.width} height={FORMAT.height} fps={FORMAT.fps} durationInFrames={FORMAT.seconds*FORMAT.fps}/><Composition id="DestinoCover" component={DestinoCover} defaultProps={defaultOutlook} width={FORMAT.width} height={FORMAT.height} fps={FORMAT.fps} durationInFrames={1}/><Composition id="Cupang" component={CupangFilm} width={1800} height={600} fps={60} durationInFrames={1440}/><Composition id="Archer" component={ArcherFilm} width={1800} height={600} fps={60} durationInFrames={2040}/><Composition id="SunkCost" component={Film} width={settings.width} height={settings.height} fps={settings.fps} durationInFrames={Math.round(settings.duration*settings.fps)}/><Composition id="Pulse" component={PulseFilm} width={1080} height={1920} fps={60} durationInFrames={1440}/></>;

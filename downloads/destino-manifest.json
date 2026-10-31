@@ -1,0 +1,22 @@
+{
+  "destino-xauusd-2-6-nov-2026.mp4": {
+    "bytes": 48416515,
+    "sha256": "61675a3105424c1c7ad92614a2caba9f40a7f304268c2912ba29649cd435d566"
+  },
+  "destino-market-outlook-remotion.zip": {
+    "bytes": 20368652,
+    "sha256": "e37fce4268b74a08b1ea4d5bd0aeb7e87e256deffde173e5c00241a66aeab28d"
+  },
+  "destino-thumbnail.png": {
+    "bytes": 2266092,
+    "sha256": "05fe832e2694d4c0bb3c703e282d882c3363cc33cd4ac6218e277aa9fb1f374c"
+  },
+  "destino-storyboard.jpg": {
+    "bytes": 193257,
+    "sha256": "3f71ee3a5ea2ec24109a4ae65321a47cf0133226bd8de51bc3e37492194cb340"
+  },
+  "destino-vo-script.md": {
+    "bytes": 1434,
+    "sha256": "107fe7dd271eef1e83418a3215cebb5caff000a4c95c71ea91d71a3f264fae55"
+  }
+}

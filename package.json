@@ -14,13 +14,21 @@
     "render:cupang": "remotion render src/index.ts Cupang out/cupang-pulse.mp4 --crf=16",
     "preview:cupang": "remotion render src/index.ts Cupang out/cupang-pulse-preview.mp4 --scale=0.75 --crf=20",
     "check:cupang": "npm run typecheck && node scripts/cupang-source-check.mjs",
-    "frames:cupang": "node scripts/cupang-compare.mjs"
+    "frames:cupang": "node scripts/cupang-compare.mjs",
+    "render:destino": "remotion render src/index.ts DestinoOutlook out/destino-outlook.mp4 --crf=17",
+    "preview:destino": "remotion render src/index.ts DestinoOutlook out/destino-preview.mp4 --scale=0.5 --crf=21",
+    "cover:destino": "remotion still src/index.ts DestinoCover out/destino-cover.png",
+    "frames:destino": "node scripts/destino-check.mjs",
+    "player:destino": "node scripts/destino-player.mjs"
   },
   "dependencies": {
+    "@fontsource/bricolage-grotesque": "^5.2.8",
     "@fontsource/dm-sans": "^5.2.8",
     "@fontsource/inter": "^5.2.8",
     "@remotion/cli": "4.0.539",
+    "@remotion/player": "4.0.539",
     "@types/three": "^0.180.0",
+    "esbuild": "^0.25.12",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "remotion": "4.0.539",
@@ -28,6 +36,7 @@
   },
   "devDependencies": {
     "@types/react": "19.1.0",
+    "@types/react-dom": "^19.1.0",
     "typescript": "5.8.3"
   }
 }
